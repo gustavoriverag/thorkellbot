@@ -11,7 +11,7 @@ int pin_mot_1_r = 6;
 int pin_mot_2 = 10;
 int pin_mot_2_r = 11;
 
-int pin_tracker = 7;
+int pin_tracker = 12;
 int pin_trig = 3;
 int pin_echo = 4;
 int pin_button = 2;
@@ -44,7 +44,7 @@ void setup()
   
   Serial.begin(9600);
   delay(2000);
-  Serial.println("Ready");
+//  Serial.println("Ready");
 }
 
 int getDist() {
@@ -112,13 +112,13 @@ void batallar() {
     //Hay 2 estados, búsqueda y ataque
     if (busca) {
       turn_left((double)180/255);
-      if (dist < 30) {
-        Serial.println("Detectado");
+      if (dist < 35) {
+//        Serial.println("Detectado");
         busca = false;
       }
     } else {
       forward(1);
-      if (dist >=30) {
+      if (dist >=35) {
         busca = true; 
       }
     }
@@ -144,14 +144,16 @@ void loop()
   }
   if (batalla) {
     if (linea) {
+//      Serial.println("Se cae");
       backwards(1);
     } else {
       dist = getDist();
+//      Serial.println(dist);
       //Hay 2 estados, búsqueda y ataque
       if (busca) {
         turn_left((double)180/255);
         if (dist < 30) {
-          Serial.println("Detectado");
+//          Serial.println("Detectado");
           busca = false;
         }
       } else {
