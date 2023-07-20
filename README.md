@@ -5,7 +5,10 @@
 ## Table of contents
 
 1. [Introduction](#intro)
-
+2. [CAD files](#cad)
+3. [Bill of materials](#bom)
+4. [Manufacturing processes](#manufacturing-processes)
+5. [Wiring](#wiring)
 
 ## Introduction<a name="intro"> <a/>
 
@@ -13,13 +16,13 @@ This repository serves as documentation for a Sumobot Project, developed for the
 
 This project consists on the design and fabrication of a robot for Robot-Sumo competitions, specifically 1kg class ones. You can read more about these competitions [here](https://www.fsi.co.jp/sumo-e/out/outc0000.html).
 
-In this repo you will find a Bill of Materials, as well as CAD files and the basic code implemented for it. 
+In this repo we showcase our design, indicate everything needed to replicate it, comment on the fabrication process of our prototype and explain the robot's routine.
 
-## CAD Files
+## CAD Files<a name="cad"> <a/>
 
 You can access the current version of our CAD files on GrabCAD, on the following link: 
 
-## Bill of materials
+## Bill of materials<a name="bom"> <a/>
 
 
 ## Manufacturing processes
@@ -58,5 +61,13 @@ Finally, the wheels were casted using polyurethane, but there's cheaper ways of 
 
 The mould was designed to be reusable, and also to secure alignment of the wheel during the casting process, and also maintaining the casted tire in place with the included slots in the wheel, considering the poor adhesion of silicone to PLA. 
 
+## Wiring
+
+In the following picture, you can see a diagram of our project's electronics: 
+
+
+In order to optimize ground and 5v pin usage, we used a breadboard, but since we needed to stay within 1kg, we cut a standard breadboard to just 10 rows with a saw.
 ## Assembly
 
+For assembly we reccomend going from the bottom up. First mounting the DC Motor brackets, and aligning them as good as you can. Then, mounting the caster wheel with its adapter, and also the IR Sensor with its spacer. 
+Then, we secured the l298n motor driver with cable ties to the chassis, and did the same to the battery. 
