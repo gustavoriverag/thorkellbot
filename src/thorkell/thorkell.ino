@@ -8,8 +8,11 @@
 int pin_mot_1 = 5;
 int pin_mot_1_r = 6;
 
-int pin_mot_2 = 10;
-int pin_mot_2_r = 11;
+int pin_mot_2 = 8;
+int pin_mot_2_r = 9;
+
+int pin_pwm_1 = 10;
+int pin_pwm_2 = 11;
 
 int pin_tracker = 12;
 int pin_trig = 3;
@@ -72,31 +75,39 @@ bool detectLine(bool lastVal) {
   
 }
 void turn_left(double pot) {
-  analogWrite(pin_mot_1, pot * (double) 255);
-  analogWrite(pin_mot_1_r, 0);
-  analogWrite(pin_mot_2, 0);
-  analogWrite(pin_mot_2_r, pot * (double) 255);
+  digitalWrite(pin_mot_1, HIGH);
+  digitalWrite(pin_mot_1_r, 0);
+  digitalWrite(pin_mot_2, 0);
+  digitalWrite(pin_mot_2_r, HIGH);
+  analogWrite(pin_pwm_1, pot*255);
+  analogWrite(pin_pwm_2, pot*255);  
 }
 
 void turn_right(double pot) {
-  analogWrite(pin_mot_1_r, pot * (double) 255);
-  analogWrite(pin_mot_1, 0);
-  analogWrite(pin_mot_2_r, 0);
-  analogWrite(pin_mot_2, pot * (double) 255);
+  digitalWrite(pin_mot_1_r, pot * (double) 255);
+  digitalWrite(pin_mot_1, 0);
+  digitalWrite(pin_mot_2_r, 0);
+  digitalWrite(pin_mot_2, pot * (double) 255);
+  analogWrite(pin_pwm_1, pot*255);
+  analogWrite(pin_pwm_2, pot*255);
 }
 
 void forward(double pot) {
-  analogWrite(pin_mot_1, pot * (double) 255);
-  analogWrite(pin_mot_1_r, 0);
-  analogWrite(pin_mot_2_r, 0);
-  analogWrite(pin_mot_2, pot * (double) 255);
+  digitalWrite(pin_mot_1, HIGH);
+  digitalWrite(pin_mot_1_r, 0);
+  digitalWrite(pin_mot_2_r, 0);
+  digitalWrite(pin_mot_2, HIGH);
+  analogWrite(pin_pwm_1, pot*255);
+  analogWrite(pin_pwm_2, pot*255);
 }
 
 void backwards(double pot) {
-  analogWrite(pin_mot_1_r, pot * (double) 255);
-  analogWrite(pin_mot_1, 0);
-  analogWrite(pin_mot_2, 0);
-  analogWrite(pin_mot_2_r, pot * (double) 255);
+  digitalWrite(pin_mot_1_r, HIGH);
+  digitalWrite(pin_mot_1, LOW);
+  digitalWrite(pin_mot_2, LOW);
+  digitalWrite(pin_mot_2_r, HIGH);
+  analogWrite(pin_pwm_1, pot*255);
+  analogWrite(pin_pwm_2, pot*255);
 }
 
 void stop() {
