@@ -65,9 +65,24 @@ The mould was designed to be reusable, and also to secure alignment of the wheel
 
 In the following picture, you can see a diagram of our project's electronics: 
 
+![wiring_diagram](img/diagram.png)
 
 In order to optimize ground and 5v pin usage, we used a breadboard, but since we needed to stay within 1kg, we cut a standard breadboard to just 10 rows with a saw.
+
+We also used a 11.1V LiPo Battery, in order to maximize the motor's power capacity.
+
 ## Assembly
 
 For assembly we reccomend going from the bottom up. First mounting the DC Motor brackets, and aligning them as good as you can. Then, mounting the caster wheel with its adapter, and also the IR Sensor with its spacer. 
 Then, we secured the l298n motor driver with cable ties to the chassis, and did the same to the battery. 
+
+If you include a switch, you need to solder the female battery connector's positive wire to it, and the other end insert it into the l298N's 12V port. The ground you connect to the chip's gnd port, and from that same port connect a gnd that will go to the arduino. From the chip's 5V port you get the positive power wire for the arduino. Here you can use a dc plug, or connect to the Vin pin. 
+
+Then, we mount the bodykit's lateral supports, wire the tracker sensor, and wire the ultrasonic sensor, after you mount it to the weapon's included support.
+
+With that done, all that's left is install the weapon, install the arduino and protoboard support plates and wire the rest of the system up. 
+
+For the wheels, press fit the hex couplings into the wheel cores, and install the other end to the motor shafts, tightening the set screw on the flat side. 
+
+## Code explanation
+
